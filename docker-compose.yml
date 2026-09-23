@@ -1,0 +1,16 @@
+services:
+  openrouter-proxy:
+    build: .
+    image: openrouter-proxy:latest
+    container_name: openrouter-proxy
+    restart: unless-stopped
+    ports:
+      - "${PROXY_PORT:-8080}:8080"
+    environment:
+      SITE_ADDRESS: "${SITE_ADDRESS:-:8080}"
+      PROXY_SECRET: "${PROXY_SECRET:?set PROXY_SECRET in .env}"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
