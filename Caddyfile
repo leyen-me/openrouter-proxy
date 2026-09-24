@@ -9,14 +9,9 @@
 	@health path /healthz
 	respond @health "ok" 200
 
-	# Shared secret, supplied via .env / compose. Blocks open-relay use.
-	@unauthorized not header X-Proxy-Secret {$PROXY_SECRET}
-	respond @unauthorized "forbidden" 403
-
 	reverse_proxy https://openrouter.ai {
 		header_up Host openrouter.ai
-		# never leak the shared secret or the client's real IP upstream
-		header_up -X-Proxy-Secret
+		# don't forward the client's real IP upstream
 		header_up -X-Forwarded-For
 		header_up -X-Real-IP
 		# stream SSE responses unbuffered (chat completions)
