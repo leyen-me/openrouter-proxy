@@ -1,0 +1,19 @@
+{
+  "name": "openrouter-proxy",
+  "version": "1.0.0",
+  "description": "A minimal reverse proxy for OpenRouter on Cloudflare Workers",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leyen-me/openrouter-proxy.git"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}

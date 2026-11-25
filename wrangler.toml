@@ -1,0 +1,11 @@
+name = "openrouter-proxy"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+# Deployed to https://openrouter-proxy.<your-subdomain>.workers.dev by default.
+# To serve it on your own domain, uncomment and edit (the domain must be in the
+# same Cloudflare account):
+#
+# routes = [
+#   { pattern = "proxy.example.com", custom_domain = true }
+# ]

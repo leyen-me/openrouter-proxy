@@ -1,1 +1,16 @@
+# dependencies
+node_modules/
+
+# Cloudflare / Wrangler
+.wrangler/
+.dev.vars
 .env
+.env.*
+!.env.example
+
+# build output
+dist/
+
+# misc
+.DS_Store
+*.log
